@@ -18,11 +18,7 @@
 
 本実験では評価指標として, MAE(Mean Absolute Error, 平均絶対誤差) [meV]を用いる.MAE は以下の式で与えられる.
 
-$$
-MAE = \frac{1}{N} \sum_{i=1}^N |y_i - \hat{y_i}|
-
-
-$$
+$$MAE = \frac{1}{N} \sum_{i=1}^N |y_i - \hat{y_i}|$$
 
 MAE は誤差を 2 乗する誤差を二乗する $\text{MSE}$ (Mean Squared Error) や $\text{RMSE}$ (Root Mean Squared Error) と比較して, 外れ値（極端に大きな誤差）の影響が過度に大きくならないという特徴がある.
 
