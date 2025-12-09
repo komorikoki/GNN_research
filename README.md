@@ -12,7 +12,7 @@
 
 ### 使用データセット
 
-今回の実験では QM9 データセット(https://springernature. figshare. com/collections/Quantum_chemistry_structures_and_properties_of_134_kilo_molecules/978904/5)を使用する. 本データセットは最大 9 個の重原子を含む 13 万以上の安定な有機分子データを含んでおり, 入力 ($\mathbf{x}$)分子構造をグラフとして表現している. 各ノード ($\mathbf{x}$) は原子（C, O, N, F, H）であり, 特徴量は原子番号, 結合次数などのワンホットエンコーディングを用いている. エッジは原子間の化学結合である.
+今回の実験では QM9 データセット(https://springernature.figshare.com/collections/Quantum_chemistry_structures_and_properties_of_134_kilo_molecules/978904/5)を使用する. 本データセットは最大 9 個の重原子を含む 13 万以上の安定な有機分子データを含んでおり, 入力 ($\mathbf{x}$)分子構造をグラフとして表現している. 各ノード ($\mathbf{x}$) は原子（C, O, N, F, H）であり, 特徴量は原子番号, 結合次数などのワンホットエンコーディングを用いている. エッジは原子間の化学結合である.
 
 ### 評価指標
 
@@ -30,11 +30,11 @@ MAE は誤差を 2 乗する誤差を二乗する $\text{MSE}$ (Mean Squared Err
 
 1.  データ処理と設定データ分割: QM9 データセットを, 訓練セット, 検証セット, テストセットに約 8:1:1 の比率で分割する. データローダー: 各セットに対し, バッチサイズ 64 の DataLoader を作成し, ミニバッチ学習を可能にする. 共通ハイパーパラメータ: 隠れ層の次元を 64 に統一. 学習エポック数を 15 に設定する.
 2.  モデルアーキテクチャの構築: GIN, PNA, GATv2 の 3 モデルを構築した. 各モデルのパラメータ数を以下に示す.
-    | モデル名 | パラメータ数 | GNN 層 | グラフ集約層| 予測層|
-    |:--------:|:----------:|:--------:|:----------:|:--------:|
-    | GIN | 13,313|$\text{GINConv}$ (3 層)|$\text{global\_add\_pool}$|$\text{Linear} \to \text{Dropout} \to \text{Linear}$|
-    | PNA | 150,069|$\text{PNAConv}$ (3 層)|$\text{global\_add\_pool}$|$\text{Linear} \to \text{Dropout} \to \text{Linear}$|
-    | GATv2 | 176,001|$\text{GATv2Conv}$ (3 層)|$\text{global\_add\_pool}$|$\text{Linear} \to \text{Dropout} \to \text{Linear}$|
+    | モデル名 | パラメータ数 | GNN 層 | グラフ集約層 | 予測層 |
+    | :---: | ---: | :---: | :---: | :---: |
+    | GIN | 13,313 | GINConv (3 層) | `global_add_pool` | Linear → Dropout → Linear |
+    | PNA | 150,069 | PNAConv (3 層) | `global_add_pool` | Linear → Dropout → Linear |
+    | GATv2 | 176,001 | GATv2Conv (3 層) | `global_add_pool` | Linear → Dropout → Linear |
 3.  訓練と評価最適化: 学習には Adam オプティマイザ（学習率 $\text{lr}=0. 001$）と $\text{L}1\text{Loss}$ を使用する. 各エポック完了後, 検証データセットを用いて MAE を計算する. 訓練完了後, 最良のチェックポイントをロードしテストセットでの最終的な MAE を算出する.
 
 ## 実験結果
