@@ -12,7 +12,7 @@
 
 ### 使用データセット
 
-今回の実験では QM9 データセット(https://springernature.figshare.com/collections/Quantum_chemistry_structures_and_properties_of_134_kilo_molecules/978904/5)を使用する. 本データセットは最大 9 個の重原子を含む 13 万以上の安定な有機分子データを含んでおり, 入力 ($\mathbf{x}$)分子構造をグラフとして表現している. 各ノード ($\mathbf{x}$) は原子（C, O, N, F, H）であり, 特徴量は原子番号, 結合次数などのワンホットエンコーディングを用いている. エッジは原子間の化学結合である.
+今回の実験では QM9 データセット(https://springernature.figshare.com/collections/Quantum_chemistry_structures_and_properties_of_134_kilo_molecules/978904/5 )を使用する. 本データセットは最大 9 個の重原子を含む 13 万以上の安定な有機分子データを含んでおり, 入力 ($\mathbf{x}$)分子構造をグラフとして表現している. 各ノード ($\mathbf{x}$) は原子（C, O, N, F, H）であり, 特徴量は原子番号, 結合次数などのワンホットエンコーディングを用いている. エッジは原子間の化学結合である.
 
 ### 評価指標
 
